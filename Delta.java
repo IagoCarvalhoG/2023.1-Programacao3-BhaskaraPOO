@@ -1,7 +1,6 @@
 /**
  * Delta
  */
-import java.util.Scanner;
 public class Delta {
     protected double a;
     protected double b;
@@ -12,6 +11,10 @@ public class Delta {
         this.b = b;
         this.c = c;
         this.delta = (this.b*this.b) + (-4*this.a*this.c);
+        while(this.delta <=0){
+            System.out.println("Os valores inseridos para bhaskara retornaram um delta negativo ou igual a zero, programa será terminado");
+            System.exit(0);
+        }
     }
     
 }

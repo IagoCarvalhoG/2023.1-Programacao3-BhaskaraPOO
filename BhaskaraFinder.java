@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 public class BhaskaraFinder extends Delta {
     /**
      * InnerBhaskaraFinder
@@ -15,15 +17,21 @@ public class BhaskaraFinder extends Delta {
             
         }
         private double bhaskaraSolverForNegative(double a, double b,double delta){
-            double resultNegative = ((-b -Math.sqrt(delta))/(2*a)); 
+            double resultNegative = (((-b -Math.sqrt(delta))/(2*a))); 
+            BigDecimal bd = new BigDecimal(resultNegative).setScale(2, RoundingMode.HALF_UP);  
+            resultNegative = bd.doubleValue();
             return resultNegative;
         }
         private double bhaskaraSolverForPositive(double a, double b, double delta){
-            double resultPositive = ((-b +Math.sqrt(delta))/(2*a)); 
+            double resultPositive = (((-b +Math.sqrt(delta))/(2*a))); 
+            BigDecimal bd = new BigDecimal(resultPositive).setScale(2, RoundingMode.HALF_UP);  
+            resultPositive = bd.doubleValue();
             return resultPositive;
         }
         private double yFinder(double a, double b, double c, double x){
             double y1 = Math.pow(x, 2) * a + b*x + c;
+            BigDecimal bd = new BigDecimal(y1).setScale(2, RoundingMode.HALF_UP);  
+            y1 = bd.doubleValue();
             return y1;
         }
         public double getX1() {
